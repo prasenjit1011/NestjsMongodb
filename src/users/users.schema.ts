@@ -15,7 +15,10 @@ export class User {
   password: string;
 
   @Prop({ type: [String], required: false })
-  orders: string[];  // One-to-many relationship with orders
+  orders: string[];
+
+  @Prop({ type: [String], required: false })
+  reviews: string[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

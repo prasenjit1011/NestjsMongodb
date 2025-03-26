@@ -12,7 +12,10 @@ export class Product {
   price: number;
 
   @Prop({ type: [String], required: true })
-  images: string[];  // One-to-many relationship with images
+  images: string[];
+  
+  @Prop({ type: [String], required: false })
+  reviews: string[];
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

@@ -19,11 +19,11 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userModel.find().select('_id name email').exec();
+    return this.userModel.find().select('_id name email orders reviews').exec();
   }
 
   async findOne(id: string): Promise<User> {
-    const user = await this.userModel.findById(id).select('_id name email').exec();
+    const user = await this.userModel.findById(id).select('_id name email orders reviews').exec();
     if (!user) throw new NotFoundException('User not found');
     return user;
   }

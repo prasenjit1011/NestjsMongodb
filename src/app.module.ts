@@ -6,7 +6,7 @@ import { FaqModule } from './faqs/faq.module';
 import { UsersModule } from './users/users.module';
 import { ProductModule } from './products/product.module';
 import { OrderModule } from './order/order.module';
-
+import { ReviewModule } from './reviews/review.module';
 
 
 @Module({
@@ -16,7 +16,8 @@ import { OrderModule } from './order/order.module';
     FaqModule,
     UsersModule,
     ProductModule,
-    OrderModule
+    OrderModule,
+    ReviewModule,
   ],
   controllers: [],
   providers: [],

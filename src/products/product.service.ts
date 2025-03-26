@@ -13,11 +13,11 @@ export class ProductService {
   }
 
   async findAll(): Promise<Product[]> {
-    return this.productModel.find().select('_id name price images').exec();
+    return this.productModel.find().select('_id name price images reviews').exec();
   }
 
   async findOne(id: string): Promise<Product> {
-    const product = await this.productModel.findById(id).select('_id name price images').exec();
+    const product = await this.productModel.findById(id).select('_id name price images reviews').exec();
     if (!product) throw new NotFoundException('Product not found');
     return product;
   }

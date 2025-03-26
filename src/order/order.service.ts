@@ -13,19 +13,10 @@ export class OrderService {
   ) {}
 
   async create(createOrderDto: CreateOrderDTO): Promise<Order> {
-    const orderData = await this.orderModel.create(createOrderDto);
-    const orderId   = orderData?._id?.toString();
-    const userId    = orderData?.userId;
-
+    const orderData = await this.orderModel.create(createOrderDto);    
     const userData  = await this.userModel.findByIdAndUpdate(createOrderDto.userId, { $push: { orders: orderData._id } });
 
-    
-
-    console.clear();
-    console.log(orderId, userId, createOrderDto.userId, userData);
-
     return orderData;
-
   }
 
   async findAll(): Promise<Order[]> {
