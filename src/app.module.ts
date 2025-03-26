@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { ProductModule } from './products/product.module';
 import { OrderModule } from './order/order.module';
 import { ReviewModule } from './reviews/review.module';
+import { AcknowledgmentModule } from './acknowledgments/acknowledgment.module';
 
 
 @Module({
@@ -18,6 +19,7 @@ import { ReviewModule } from './reviews/review.module';
     ProductModule,
     OrderModule,
     ReviewModule,
+    AcknowledgmentModule
   ],
   controllers: [],
   providers: [],

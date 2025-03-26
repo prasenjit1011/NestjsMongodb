@@ -18,12 +18,20 @@ export class UsersService {
     return this.userModel.create(createUserDto);
   }
 
+
   async findAll(): Promise<User[]> {
-    return this.userModel.find().select('_id name email orders reviews').exec();
+    //return this.userModel.find().select('_id name email orders reviews reviews.acknowledgment').exec();
+    return this.userModel.find().populate('reviews').exec();
   }
 
   async findOne(id: string): Promise<User> {
-    const user = await this.userModel.findById(id).select('_id name email orders reviews').exec();
+    console.clear();
+    //const user = await this.userModel.findById(id).select('_id name email orders reviews reviews.acknowledgment').exec();
+
+    const user = await this.userModel.findById(id).populate('reviews').exec();
+    //const user = await this.userModel.findById(id).populate('_id', 'name').exec();
+    
+    
     if (!user) throw new NotFoundException('User not found');
     return user;
   }

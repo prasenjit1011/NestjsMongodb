@@ -26,6 +26,7 @@ export class ReviewService {
       { new: true }
     );
   
+    
     // ✅ Update the product (corrected productId usage)
     const productData = await this.productModel.findByIdAndUpdate(
       createReviewDto.productId, // 🔥 FIXED: Use productId, not userId
@@ -37,7 +38,7 @@ export class ReviewService {
   }
   
   async findAll(): Promise<Review[]> {
-    return this.reviewModel.find().select('_id question answer').exec();
+    return this.reviewModel.find().select('_id userId productId remarks acknowledgment').exec();
   }
 
   async findOne(id: string): Promise<Review> {

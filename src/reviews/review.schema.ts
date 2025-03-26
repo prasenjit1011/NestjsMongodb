@@ -13,6 +13,10 @@ export class Review {
 
   @Prop({ required: true })
   remarks: string;
+
+  @Prop({ type: [String], required: false })
+  acknowledgment: string[];
+
 }
 
 export const ReviewSchema = SchemaFactory.createForClass(Review);
