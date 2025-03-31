@@ -8,6 +8,8 @@ import { ProductModule } from './products/product.module';
 import { OrderModule } from './order/order.module';
 import { ReviewModule } from './reviews/review.module';
 import { AcknowledgmentModule } from './acknowledgments/acknowledgment.module';
+import { ResolutionModule } from './resolutions/resolution.module';
+
 
 
 @Module({
@@ -19,7 +21,8 @@ import { AcknowledgmentModule } from './acknowledgments/acknowledgment.module';
     ProductModule,
     OrderModule,
     ReviewModule,
-    AcknowledgmentModule
+    AcknowledgmentModule,
+    ResolutionModule
   ],
   controllers: [],
   providers: [],

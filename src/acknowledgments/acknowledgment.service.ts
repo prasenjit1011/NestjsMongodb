@@ -25,7 +25,7 @@ export class AcknowledgmentService {
   }
 
   async findAll(): Promise<Acknowledgment[]> {
-    return this.acknowledgmentModel.find().select('_id reviewId response_msg').exec();
+    return this.acknowledgmentModel.find().exec();
   }
 
   async findOne(id: string): Promise<Acknowledgment> {

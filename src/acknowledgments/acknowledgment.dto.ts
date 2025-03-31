@@ -5,5 +5,5 @@ export class AcknowledgmentDTO {
   reviewId: string;
 
   @IsString()
- response_msg: string;
+  response_msg: string;
 }

@@ -14,14 +14,25 @@ export class UsersService {
     if (existingUser) {
       throw new ConflictException('Email already exists');
     }
-  
     return this.userModel.create(createUserDto);
   }
 
-
   async findAll(): Promise<User[]> {
-    //return this.userModel.find().select('_id name email orders reviews reviews.acknowledgment').exec();
-    return this.userModel.find().populate('reviews').exec();
+    return this.userModel
+                .find()
+                .populate({
+                  path: 'orders', 
+                })
+                .populate(
+                  {
+                    path: 'reviews', 
+                    populate: { 
+                      path: 'acknowledgment', 
+                      populate: { path: 'resolution' } 
+                    }
+                  }
+                )
+                .exec();
   }
 
   async findOne(id: string): Promise<User> {

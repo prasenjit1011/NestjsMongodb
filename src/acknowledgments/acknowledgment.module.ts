@@ -6,10 +6,10 @@ import { Acknowledgment, AcknowledgmentSchema } from './acknowledgment.schema';
 import { Review, ReviewSchema } from 'src/reviews/review.schema';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: Acknowledgment.name, schema: AcknowledgmentSchema }]),
-    MongooseModule.forFeature([{ name: Review.name, schema: ReviewSchema }])
-  ],
+  imports: [MongooseModule.forFeature([
+    { name: Acknowledgment.name, schema: AcknowledgmentSchema },
+    { name: Review.name, schema: ReviewSchema }
+  ])],
   controllers: [AcknowledgmentController],
   providers: [AcknowledgmentService],
 })

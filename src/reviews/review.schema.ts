@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Acknowledgment } from 'src/acknowledgments/acknowledgment.schema';
 
 export type ReviewDocument = Review & Document;
 
@@ -14,8 +15,8 @@ export class Review {
   @Prop({ required: true })
   remarks: string;
 
-  @Prop({ type: [String], required: false })
-  acknowledgment: string[];
+  @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'Acknowledgment' }], require: false })
+  acknowledgment: MongooseSchema.Types.ObjectId[];
 
 }
 

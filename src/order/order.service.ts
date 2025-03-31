@@ -4,6 +4,8 @@ import { Model } from 'mongoose';
 import { Order, OrderDocument } from './order.schema';
 import { CreateOrderDTO } from './order.dto';
 import { User, UserDocument } from 'src/users/users.schema';
+import { populate } from 'dotenv';
+import path from 'path';
 
 @Injectable()
 export class OrderService {
@@ -20,7 +22,30 @@ export class OrderService {
   }
 
   async findAll(): Promise<Order[]> {
-    return this.orderModel.find().select('_id userId products totalAmount status').exec();
+
+    console.clear();
+    console.log('--here--');
+    return this.orderModel
+                .find()
+                .populate({
+                  path: 'userId'
+                })
+                .populate({
+                  path:'products',
+                  populate: { 
+                    path: 'productId',
+                    populate: {
+                      path: 'reviews',
+                      populate: {
+                        path: 'acknowledgment',
+                        populate: {
+                          path: 'resolution'
+                        }
+                      }
+                    }
+                  }
+                })
+                .exec();
   }
 
   async findOne(id: string): Promise<Order> {
