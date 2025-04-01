@@ -9,7 +9,7 @@ import { OrderModule } from './order/order.module';
 import { ReviewModule } from './reviews/review.module';
 import { AcknowledgmentModule } from './acknowledgments/acknowledgment.module';
 import { ResolutionModule } from './resolutions/resolution.module';
-
+import { FoodModule } from './food/food.module';
 
 
 @Module({
@@ -22,7 +22,8 @@ import { ResolutionModule } from './resolutions/resolution.module';
     OrderModule,
     ReviewModule,
     AcknowledgmentModule,
-    ResolutionModule
+    ResolutionModule,
+    FoodModule
   ],
   controllers: [],
   providers: [],
